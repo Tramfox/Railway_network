@@ -32,12 +32,12 @@ public:
 	void passngrTrfReg (double passngrTraf);
 
 	//Печать всех элементов класса
-	void print();
+	void print() const;
 
 	//Получение приватных значений
-	string const& get_name() {return (name);}
-	double get_averCargo() {return (averCargo);}
-	double get_averPassngr() {return (averPassngr);}
+	string const& get_name() const {return (name);}
+	double get_averCargo() const {return (averCargo);}
+	double get_averPassngr() const {return (averPassngr);}
 };
 
 #endif

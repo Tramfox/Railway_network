@@ -10,7 +10,7 @@
 using std::cout;
 using std::endl;
 
-void Station::print()
+void Station::print() const
 {
 	cout << "==================================" << endl;
 	cout << "Station name: " << name << ";" << endl;
