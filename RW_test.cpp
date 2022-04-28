@@ -26,6 +26,15 @@ void Station::print() const
 	cout << "Average   cargo   traffic: " << averCargo << endl;
 }
 
+void Connection::print() const
+{
+	cout << "+++++++++++++++++++++++++++++++++++++++" << endl;
+	cout << "Connection between " << left.get_name() << " and " <<
+		right.get_name() << endl;
+	cout << "Passengers: " << maxPassngr << endl;
+	cout << "     Cargo: " << maxCargo << endl;
+}
+
 //Сравнение двух double
 bool is_equal_double(double x, double y)
 {
@@ -123,7 +132,14 @@ bool StationModuleTest()
 	return true;
 }
 bool ConnectionModuleTest()
-{return true;}
+{
+	//Конструктор без параметров
+	Platform P1("Ключики", 7.12);
+	Station S1("Большие Ключики", 15.1);
+	Connection C1(P1, S1, 0.0, 7.12, 10);
+	C1.print();
+	return true;
+}
 bool TrainModuleTest()
 {return true;}
 bool NetworkModuleTest()

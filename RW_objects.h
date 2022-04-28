@@ -51,4 +51,29 @@ public:
 	double get_averCargo() const {return (averCargo);}
 };
 
+template <class L, class R>
+class Connection
+{
+private:
+	L left;
+	R right;
+	double maxCargo, maxPassngr;
+	size_t time;
+public:
+/*	Connection(string const& atrLeft, string const& strRight);
+	Connection(string const& strLeft, string const& strRight
+		double cargoTraf, double passngrTraf, size_t t);*/
+	Connection(L const&, R const&);
+	Connection(L const&, R const&,
+		double cargoTraf, double passngrTraf, size_t t);
+	~Connection();
+
+	void setTime(size_t t);
+	void set(double passngrTraf, double cargoTraf);
+	double getPass() const {return (maxPassngr);}
+	double getCargo() const {return (maxCargo);}
+
+	void print() const;
+};
+
 #endif

@@ -2,6 +2,7 @@
 #include <string>
 #include "RW_objects.h"
 
+//Platform class
 Platform::Platform()
 {
 	name = "NoName";
@@ -33,9 +34,7 @@ void Platform::passngrTrfReg (double passngrTraf)
 }
 
 
-
-
-//Station::Station(): Platform()
+//Station class
 Station::Station()
 {
 	averCargo = 0.0;
@@ -54,17 +53,43 @@ Platform(str, passngrTraf)
 
 Station::~Station(){};
 
-/*void Station::nameReg (string const& str)
-{
-	name = str;
-}*/
-
-void Station::cargoTrfReg (double cargoTraf) 
+void Station::cargoTrfReg (double cargoTraf)
 {
 	averCargo = cargoTraf;
 }
 
-/*void Station::passngrTrfReg (double passngrTraf)
+
+//Connection class
+Connection::Connection(L const& left_, R const& right_)
 {
-	averPassngr = passngrTraf;
-}*/
+	if (!left_.get_name.empty() && !right_.get_name.empty())
+	{
+		left = left_;
+		right = right_;
+	}
+	else
+		left = right = "NONE!";
+}
+
+Connection::Connection(L const& left_, R const& right_
+                double cargoTraf, double passngrTraf, size_t t)
+{
+	if (!left_.get_name.empty() && !right_.get_name.empty())
+	{
+		left = left_;
+		right = right_;
+		setTime(t);
+		set(passngrTraf, cargoTraf);
+	}
+}
+
+void Connection::changeTime(size_t t)
+{
+	time = (t >= 0 ? t : 0);
+}
+
+void Connection::set(double passngrTraf, double cargoTraf)
+{
+	maxCargo = (cargoTraf >= 0.0 ? cargoTraf : 0.0);
+	maxPassngr = (passngrTraf >= 0.0 ? passngrTraf : 0.0);
+}
